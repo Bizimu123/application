@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 30px;
+        }
+        .form-section, .list-section {
+            flex: 1;
+        }
+        form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .action-buttons button {
+            padding: 5px 10px;
+            margin-right: 5px;
+            font-size: 14px;
+        }
+        .delete-btn {
+            background-color: #f44336;
+        }
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+        .edit-btn {
+            background-color: #2196F3;
+        }
+        .edit-btn:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Management System</h1>
+    
+    <div class="container">
+        <div class="form-section">
+            <form id="bookForm">
+                <h2 id="formTitle">Add New Book</h2>
+                <input type="hidden" id="bookId">
+                
+                <label for="title">Title:</label>
+                <input type="text" id="title" required>
+                
+                <label for="author">Author:</label>
+                <input type="text" id="author" required>
+                
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre" required>
+                
+                <label for="price">Price:</label>
+                <input type="number" id="price" step="0.01" required>
+                
+                <label for="instock">In Stock:</label>
+                <select id="instock" required>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+                
+                <button type="submit" id="submitBtn">Add Book</button>
+                <button type="button" id="cancelBtn" style="display: none; background-color: #ff9800;">Cancel</button>
+            </form>
+        </div>
+        
+        <div class="list-section">
+            <h2>Book List</h2>
+            <table id="bookTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Price</th>
+                        <th>In Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="bookTableBody">
+                    <!-- Books will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
